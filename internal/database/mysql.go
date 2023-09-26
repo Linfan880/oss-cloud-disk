@@ -19,10 +19,10 @@ func init() {
 	var err error
 	global.MysqlConn, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
-		fmt.Println("数据库连接失败")
+		fmt.Println("Mysql Connection Failed ...")
 		return
 	}
-	fmt.Println("数据库连接成功")
+	fmt.Println("Mysql Connection Success ...")
 }
 
 func GetDbConn() *gorm.DB {

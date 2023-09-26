@@ -1,4 +1,4 @@
-package repository
+package dao
 
 type ResourceRepositoryInterface interface {
 }

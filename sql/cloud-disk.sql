@@ -14,9 +14,9 @@ CREATE TABLE `resource` (
                        `size` int(11) DEFAULT NULL COMMENT '文件大小',
                        `path` varchar(255) DEFAULT NULL COMMENT '文件路径',
                        `is_shared` TINYINT(1) DEFAULT 0 COMMENT '是否为共享文件，0表示不共享(默认)，1表示共享',
-                       `created_at` datetime(3) DEFAULT NULL,
-                       `updated_at` datetime(3) DEFAULT NULL,
-                       `deleted_at` datetime(3) DEFAULT NULL,
+                       `created_at` datetime DEFAULT NULL,
+                       `updated_at` datetime DEFAULT NULL,
+                       `deleted_at` datetime DEFAULT NULL,
                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -34,9 +34,9 @@ CREATE TABLE `shared_pool` (
                            `size` int(100) DEFAULT NULL COMMENT '文件大小',
                            `path` varchar(10) DEFAULT NULL COMMENT '文件路径',
                            `click_num` int(11) DEFAULT '0' COMMENT '点击次数',
-                           `created_at` datetime(3) DEFAULT NULL,
-                           `updated_at` datetime(3) DEFAULT NULL,
-                           `deleted_at` datetime(3) DEFAULT NULL,
+                           `created_at` datetime DEFAULT NULL,
+                           `updated_at` datetime DEFAULT NULL,
+                           `deleted_at` datetime DEFAULT NULL,
                            PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -50,9 +50,9 @@ CREATE TABLE `user` (
                       `name` varchar(60) DEFAULT NULL COMMENT '用户名',
                       `password_hash` varchar(32) DEFAULT NULL COMMENT '加密后的密码',
                       `phone` varchar(11) DEFAULT NULL COMMENT '手机号',
-                      `created_at` datetime(3) DEFAULT NULL,
-                      `updated_at` datetime(3) DEFAULT NULL,
-                      `deleted_at` datetime(3) DEFAULT NULL,
+                      `created_at` datetime DEFAULT NULL,
+                      `updated_at` datetime DEFAULT NULL,
+                      `deleted_at` datetime DEFAULT NULL,
                       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -69,9 +69,9 @@ CREATE TABLE `user_repository` (
                                `size` int(11) DEFAULT NULL COMMENT '文件大小',
                                `path` varchar(255) DEFAULT NULL COMMENT '文件路径',
                                `is_shared` TINYINT(1) DEFAULT 0 COMMENT '是否为共享文件，0表示不共享(默认)，1表示共享',
-                               `created_at` datetime(3) DEFAULT NULL,
-                               `updated_at` datetime(3) DEFAULT NULL,
-                               `deleted_at` datetime(3) DEFAULT NULL,
+                               `created_at` datetime DEFAULT NULL,
+                               `updated_at` datetime DEFAULT NULL,
+                               `deleted_at` datetime DEFAULT NULL,
                                PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

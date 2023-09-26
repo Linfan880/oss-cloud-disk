@@ -1,0 +1,32 @@
+OSS-Cloud-Disk
+轻量级OSS云盘系统，基于GORM、GIN实现。
+
+腾讯云COS后台地址：https://console.cloud.tencent.com/cos/bucket
+
+腾讯云COS帮助文档：https://cloud.tencent.com/document/product/436/31215
+
+系统模块
+ 用户模块
+ 密码登录
+ 刷新Authorization
+ 邮箱注册
+ 用户详情
+ 用户容量
+ 存储池模块
+ 中心存储池资源管理
+ 文件上传
+ 文件秒传
+ 文件分片上传
+ 对接 MinIO
+ 对接阿里对象存储
+ 个人存储池资源管理
+ 文件关联存储
+ 文件列表
+ 文件名称修改
+ 文件夹创建
+ 文件删除
+ 文件移动
+ 文件分享模块
+ 创建分享记录
+ 获取资源详情
+ 资源保存

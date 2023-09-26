@@ -1,16 +1,19 @@
 package model
 
-import "time"
+import (
+	"gorm.io/gorm"
+	"time"
+)
 
 type User struct {
-	Id           int64     `gorm:"column:id;primary_key" json:"id"`
-	Identity     string    `gorm:"column:identity" json:"identity"` //作为外键使用
-	Name         string    `gorm:"column:name;type:varchar(255)" json:"name"`
-	PasswordHash string    `gorm:"column:password_hash;type:varchar(255)" json:"password_hash"`
-	Phone        string    `gorm:"column:phone;type:varchar(11)" json:"phone"`
-	CreateAt     time.Time `gorm:"column:created_at;type:datatime(3)" json:"create_at"`
-	UpdateAt     time.Time `gorm:"column:updated_at;type:datatime(3)" json:"update_at"`
-	DeleteAt     time.Time `gorm:"column:deleted_at;type:datatime(3)" json:"delete_at"`
+	Id           int64          `gorm:"column:id;primary_key" json:"id"`
+	Identity     string         `gorm:"column:identity" json:"identity"` //作为外键使用
+	Name         string         `gorm:"column:name;type:varchar(255)" json:"name"`
+	PasswordHash string         `gorm:"column:password_hash;type:varchar(255)" json:"password_hash"`
+	Phone        string         `gorm:"column:phone;type:varchar(11)" json:"phone"`
+	CreateAt     time.Time      `gorm:"column:created_at;type:datatime(3)" json:"create_at"`
+	UpdateAt     time.Time      `gorm:"column:updated_at;type:datatime(3)" json:"update_at"`
+	DeleteAt     gorm.DeletedAt `gorm:"column:deleted_at;type:datatime(3)" json:"delete_at"`
 }
 
 func (table *User) TableName() string {
