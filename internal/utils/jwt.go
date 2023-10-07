@@ -7,15 +7,17 @@ import (
 	"time"
 )
 
-func GenerateToken(identity, name string, second int) (string, error) {
+func GenerateToken(identity, name string, expire int) (string, error) {
 	uc := middleware.UserClaim{
 		Identity: identity,
 		Name:     name,
 		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Second * time.Duration(second)).Unix(),
+			ExpiresAt: time.Now().Add(time.Second * time.Duration(expire)).Unix(),
 		},
 	}
+	// 使用指定的签名方法（HS256）创建带有声明的新令牌。
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, uc)
+	// 使用秘密密钥签名令牌并获取编码后的字符串令牌。
 	tokenString, err := token.SignedString([]byte(middleware.JwtKey))
 	if err != nil {
 		return "", err
@@ -24,7 +26,6 @@ func GenerateToken(identity, name string, second int) (string, error) {
 	return tokenString, nil
 }
 
-// AnalyzeToken
 // Token 解析
 func AnalyzeToken(token string) (*middleware.UserClaim, error) {
 	uc := new(middleware.UserClaim)

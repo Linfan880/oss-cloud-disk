@@ -25,7 +25,8 @@ func NewRouter() *gin.Engine {
 		{
 			user.POST("/register", controller.UserRegister)
 			user.POST("/login", controller.UserLogin)
-			user.DELETE("/deregister", controller.DeleteUser)
+			user.GET("/detail", controller.UserDetail)
+			//user.DELETE("/deregister", controller.DeleteUser)
 		}
 
 	}

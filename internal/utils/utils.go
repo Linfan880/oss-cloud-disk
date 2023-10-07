@@ -10,10 +10,10 @@ func GenerateUuid() string {
 	return uuid.NewString()
 }
 
-func Md5(password string) string {
-	hasher := md5.New()
-	hasher.Write([]byte(password))
-	passwordHash := hex.EncodeToString(hasher.Sum(nil))
+func Md5(str string) string {
+	hash := md5.New()
+	hash.Write([]byte(str))
+	passwordHash := hex.EncodeToString(hash.Sum(nil))
 
 	return passwordHash
 }

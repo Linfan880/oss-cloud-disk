@@ -4,11 +4,13 @@ import (
 	_ "file-system/internal/database"
 	"file-system/internal/global"
 	"file-system/internal/web/router"
-	"strconv"
+	"fmt"
 )
 
 func main() {
 	r := router.NewRouter()
 
-	r.Run(global.WebAddr + ":" + strconv.Itoa(global.WebPort))
+	if err := r.Run(fmt.Sprintf("%s:%d", global.WebAddr, global.WebPort)); err != nil {
+		fmt.Println("Server Start Failed ... :", err)
+	}
 }

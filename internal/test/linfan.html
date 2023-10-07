@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration and Login Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>Registration Form</h2>
+<form id="registerForm">
+    Username:<br>
+    <input type="text" id="ruser" name="username"><br>
+    Password:<br>
+    <input type="password" id="rpass" name="password"><br>
+    <button type="button" onclick="register()">Register</button>
+</form>
+<h2>Login Form</h2>
+<form id="loginForm">
+    Username:<br>
+    <input type="text" id="luser" name="username"><br>
+    Password:<br>
+    <input type="password" id="lpass" name="password"><br>
+    <button type="button" onclick="login()">Login</button>
+</form>
+
+<script> 
+    function register(){
+        var ruser = $('#ruser').val();
+        var rpass = $('#rpass').val();
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            data: {username:ruser, password:rpass},
+            success: function(data){
+                alert('Registration Successful');
+            },
+            error: function(jqXHR){
+                alert('Failed to register: ' + jqXHR.responseText);
+            }
+        });
+    }
+
+    function login(){
+        var luser = $('#luser').val();
+        var lpass = $('#lpass').val();
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: {username:luser, password:lpass},
+            success: function(data){
+                alert('Login Successful');
+            },
+            error: function(jqXHR){
+                alert('Failed to login: ' + jqXHR.responseText);
+            }
+        });
+    }
+</script> 
+</body>
+</html>

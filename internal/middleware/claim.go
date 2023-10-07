@@ -11,7 +11,7 @@ type UserClaim struct {
 	jwt.StandardClaims
 }
 
-var JwtKey = "oss-cloud-disk-key"
+var JwtKey = "oss-cloud-disk"
 var MailPassword = os.Getenv("MailPassword")
 
 // CodeLength 验证码长度
